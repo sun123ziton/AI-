@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片字幕生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>图片字幕生成器</h1>
+
+    <div class="container">
+        <div class="controls">
+            <h2>控制区</h2>
+            <div class="control-item">
+                <label for="imageLoader">选择文件</label>
+                <input type="file" id="imageLoader" name="imageLoader" accept="image/png, image/jpeg, image/webp"/>
+            </div>
+            <div class="control-grid">
+                <div class="control-item">
+                    <label for="subtitleHeight">字幕高度 (px)</label>
+                    <input type="number" id="subtitleHeight" value="40">
+                </div>
+                <div class="control-item">
+                    <label for="fontSize">字体大小 (px)</label>
+                    <input type="number" id="fontSize" value="20">
+                </div>
+                <div class="control-item">
+                    <label for="fontColor">字体颜色</label>
+                    <input type="color" id="fontColor" value="#FFFFFF">
+                </div>
+                <div class="control-item">
+                    <label for="outlineColor">轮廓颜色</label>
+                    <input type="color" id="outlineColor" value="#000000">
+                </div>
+                <div class="control-item">
+                    <label for="bgOpacity">背景透明度 (0-1)</label>
+                    <input type="number" id="bgOpacity" value="1" min="0" max="1" step="0.1">
+                </div>
+            </div>
+            <div class="control-item">
+                <label for="imageUrl">图片URL（可选，需公网可访问）</label>
+                <input type="text" id="imageUrl" placeholder="https://example.com/your-image.png">
+            </div>
+            <div class="control-item">
+                <label for="subtitleText">字幕内容</label>
+                <textarea id="subtitleText" rows="4">别吵
+我在给自己写钓鱼网站呢
+对, 这年头
+咱们猫咪都能自己写代码了</textarea>
+            </div>
+            <div class="control-item ai-suggestions">
+                <label>AI 建议</label>
+                <div id="ai-desc" class="ai-desc"></div>
+                <div id="ai-tags" class="tags-container">
+                    <!-- AI-generated tags will be inserted here -->
+                </div>
+                <button id="ai-generate-btn" class="ai-button">获取AI建议</button>
+            </div>
+            <div class="actions">
+                <button id="generateBtn" class="action-button">生成字幕图片</button>
+                <button id="saveBtn" class="action-button">保存图片</button>
+            </div>
+        </div>
+
+        <div class="preview">
+            <h2>预览区</h2>
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
